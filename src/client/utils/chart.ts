@@ -1,9 +1,14 @@
 import moment, { Moment } from 'moment';
 
-import { UserApiType, UserType } from '../types/users';
+import { UserApiType } from '../types/user';
+import { ChartType } from '../types/chart';
 
-export const filter = (data: UserApiType[], from: Moment | null, to: Moment | null): UserType[] => {
-  const result: UserType[] = [];
+export const filter = (
+  data: UserApiType[],
+  from: Moment | null,
+  to: Moment | null,
+): ChartType[] => {
+  const result: ChartType[] = [];
 
   data
     .filter(({ birthday }) => {
@@ -26,7 +31,7 @@ export const filter = (data: UserApiType[], from: Moment | null, to: Moment | nu
           }
         });
       } else {
-        const obj = {} as UserType;
+        const obj = {} as ChartType;
 
         obj.country = person.country;
         obj.y = 1;
