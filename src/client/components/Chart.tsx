@@ -2,10 +2,10 @@ import React from 'react';
 import Highcharts from 'highcharts';
 import HighchartsReact from 'highcharts-react-official';
 
-import { UserType } from '../types/users';
+import { ChartType } from '../types/chart';
 
 type Props = {
-  data: UserType[];
+  data: ChartType[];
 };
 
 const Chart: React.FC<Props> = ({ data }) => {
