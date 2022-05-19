@@ -2,7 +2,7 @@ import moment, { Moment } from 'moment';
 
 import { UserApiType, UserType } from '../types/users';
 
-export const filter = (data: UserApiType[], from?: Moment, to?: Moment): UserType[] => {
+export const filter = (data: UserApiType[], from: Moment | null, to: Moment | null): UserType[] => {
   const result: UserType[] = [];
 
   data
