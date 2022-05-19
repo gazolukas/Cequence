@@ -1,0 +1,356 @@
+{
+    "extends": [
+        "airbnb",
+        "prettier",
+        "prettier/react",
+        "prettier/@typescript-eslint",
+        "plugin:jest/recommended",
+
+        "eslint:recommended",
+        "plugin:@typescript-eslint/eslint-recommended",
+        "plugin:@typescript-eslint/recommended",
+        "plugin:@typescript-eslint/recommended-requiring-type-checking",
+        "plugin:prettier/recommended"
+    ],
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true
+        },
+        "ecmaVersion": 2018,
+        "sourceType": "module",
+        "project": ["./tsconfig.json"]
+    },
+    "plugins": [
+        "react",
+        "react-hooks",
+        "import",
+        "prettier",
+        "@typescript-eslint",
+        "jest",
+
+        "promise"
+    ],
+    "rules": {
+        // Typescript
+        "@typescript-eslint/ban-ts-ignore": ["off"],
+        "@typescript-eslint/camelcase": ["off"],
+
+        // Prettier
+        "prettier/prettier": "error",
+
+        // React
+        "react/no-array-index-key": "warn",
+        "react/no-find-dom-node": "warn",
+        "react/require-default-props": "warn",
+        "react/no-typos": "warn",
+        "react/sort-comp": "error",
+        "react/no-unused-prop-types": ["warn", {
+            "skipShapeProps": true
+        }],
+
+        // React-jsx
+        "react/jsx-props-no-spreading": 0,
+        "react/jsx-curly-brace-presence": "warn",
+        "react/jsx-no-target-blank": "warn",
+        "react/jsx-uses-vars": 2,
+        "react/jsx-uses-react": 2,
+        "react/jsx-key": 2,
+        "react/jsx-filename-extension": [
+            1,
+            {
+                "extensions": [
+                    ".ts",
+                    ".tsx",
+                    ".js",
+                    ".jsx"
+                ]
+            }
+        ],
+
+        // React-hooks
+        "react-hooks/rules-of-hooks": "error",
+        "react-hooks/exhaustive-deps": "error",
+
+        // Import
+        "import/no-self-import": "error",
+        "import/named": "off",
+        "import/no-named-as-default": "off",
+        "import/no-named-as-default-member": "off",
+        "import/first": "warn",
+        "import/imports-first": "warn",
+        "import/no-named-default": "warn",
+        "import/prefer-default-export": 0,
+        "import/no-extraneous-dependencies": 0,
+        "import/extensions": [
+            "error",
+            "ignorePackages",
+            {
+                "js": "never",
+                "jsx": "never",
+                "ts": "never",
+                "tsx": "never"
+            }
+        ],
+
+        // Promise
+        "promise/always-return": "error",
+        "promise/no-return-wrap": "error",
+        "promise/param-names": "error",
+        "promise/catch-or-return": "error",
+        "promise/no-native": "off",
+        "promise/no-nesting": "warn",
+        "promise/no-promise-in-callback": "warn",
+        "promise/no-callback-in-promise": "warn",
+        "promise/avoid-new": "off",
+        "promise/prefer-await-to-then": "error",
+        "promise/prefer-await-to-callbacks": "off",
+
+        // ESlint
+        "func-names": "error",
+        "no-console": "warn",
+        "no-restricted-globals": ["error", "event", "fdescribe"],
+        "object-curly-newline": "off",
+        "function-paren-newline": "error",
+        "no-use-before-define": 0,
+        "no-shadow": 0,
+        "no-warning-comments": "error",
+        "eol-last": "error",
+        "curly": "error",
+        "no-restricted-imports": [
+            "error",
+            {
+                "paths": [
+                    {
+                        "name": "lodash",
+                        "message":
+                            "Please import the specific module you need, e.g. `import foo from 'lodash/foo';`"
+                    },
+                    {
+                        "name": "lodash/isEmpty",
+                        "message": "Please use `Object.keys(x).length` or `x.length` instead of isEmpty"
+                    },
+                    {
+                        "name": "lodash/omit",
+                        "message": "Please use JS object rest or `:omit` instead of `lodash/omit`"
+                    },
+                    {
+                        "name": "lodash/omitBy",
+                        "message": "Please use `:omit-by` instead of `lodash/omitBy`"
+                    },
+                    {
+                        "name": "lodash/pick",
+                        "message": "Please use `:pick` instead of `lodash/pick`"
+                    },
+                    {
+                        "name": "lodash/pickBy",
+                        "message": "Please use `:pick-by` instead of `lodash/pickBy`"
+                    },
+                    {
+                        "name": "lodash/noop",
+                        "message": "Please use an empty function instead of `lodash/noop`"
+                    },
+                    {
+                        "name": "lodash/defer",
+                        "message": "Please use `setTimeout` instead of `lodash/defer`"
+                    },
+                    {
+                        "name": "lodash/shuffle",
+                        "message": "Please use `:shuffle-array` instead of `lodash/shuffle`"
+                    },
+                    {
+                        "name": "lodash/flatten",
+                        "message": "Please use the builtin `.flat()` or `.flatMap` array methods"
+                    },
+                    {
+                        "name": "underscore",
+                        "importNames": ["flatten"],
+                        "message": "Please use the builtin `.flat()` or `.flatMap` array methods"
+                    },
+                    {
+                        "name": "airbnb-dls-web/build/themes/withStyles",
+                        "importNames": [
+                            "withStylePropTypes",
+                            "withStylePropType",
+                            "withStyleProps",
+                            "withStyleProp",
+                            "withStylesPropType",
+                            "withStylesProps",
+                            "withStylesProp"
+                        ],
+                        "message": "You have a typo in your import! Please import `withStylesPropTypes` instead."
+                    },
+                    {
+                        "name": "airbnb-dls-web/build/themes/withStyles",
+                        "importNames": ["css"],
+                        "message": "Please don't import `css`. Use `this.props.css` instead!"
+                    },
+                    {
+                        "name": "airbnb-react-router-legacy",
+                        "message": "Please use `react-router` instead"
+                    },
+                    {
+                        "name": "airbnb-react-router-legacy-v3",
+                        "message": "Please use `react-router` instead"
+                    }
+                ],
+                "patterns": ["alt/utils/*"]
+            }
+        ],
+        "no-restricted-modules": [
+            "error",
+            {
+                "paths": [
+                    {
+                        "name": "lodash",
+                        "message":
+                            "Please import the specific module you need, e.g. `import foo from 'lodash/foo';`"
+                    },
+                    {
+                        "name": "lodash/isEmpty",
+                        "message": "Please use `Object.keys(x).length` or `x.length` instead of isEmpty"
+                    },
+                    {
+                        "name": "lodash/omit",
+                        "message": "Please use JS object rest or `:omit` instead of `lodash/omit`"
+                    },
+                    {
+                        "name": "lodash/omitBy",
+                        "message": "Please use `:omit-by` instead of `lodash/omitBy`"
+                    },
+                    {
+                        "name": "lodash/pick",
+                        "message": "Please use `:pick` instead of `lodash/pick`"
+                    },
+                    {
+                        "name": "lodash/pickBy",
+                        "message": "Please use `:pick-by` instead of `lodash/pickBy`"
+                    },
+                    {
+                        "name": "lodash/noop",
+                        "message": "Please use an empty function instead of `lodash/noop`"
+                    },
+                    {
+                        "name": "lodash/defer",
+                        "message": "Please use `setTimeout` instead of `lodash/defer`"
+                    },
+                    {
+                        "name": "lodash/shuffle",
+                        "message": "Please use `:shuffle-array` instead of `lodash/shuffle`"
+                    },
+                    {
+                        "name": "lodash/flatten",
+                        "message": "Please use the builtin `.flat()` or `.flatMap` array methods"
+                    },
+                    {
+                        "name": "airbnb-react-router-legacy",
+                        "message": "Please use `react-router` instead"
+                    },
+                    {
+                        "name": "airbnb-react-router-legacy-v3",
+                        "message": "Please use `react-router` instead"
+                    }
+                ],
+                "patterns": ["alt/utils/*"]
+            }
+        ],
+        "no-restricted-properties": [
+            "error",
+            {
+                "object": "arguments",
+                "property": "callee",
+                "message": "arguments.callee is deprecated"
+            },
+            {
+                "property": "__defineGetter__",
+                "message": "Please use Object.defineProperty instead."
+            },
+            {
+                "property": "__defineSetter__",
+                "message": "Please use Object.defineProperty instead."
+            },
+            {
+                "property": "toString",
+                "message": "`String(x)` is always better than `x.toString()` - use that instead.\n* If you're passing a radix to `toString`, disable this rule with an inline comment.\n*"
+            }
+        ],
+        "jsx-a11y/anchor-is-valid": [
+            "error",
+            {
+                "components": []
+            }
+        ],
+        "new-cap": [
+            "error", {
+                "capIsNewExceptions": ["Shape"]
+            }
+        ],
+
+        // TODO: all rules below this line are temporarily disabled. We plan to
+        // enable them, with inline comments to override where needed.
+        "react/forbid-prop-types": "warn",
+        "react/prop-types": "off",
+        "class-methods-use-this": "warn",
+        "global-require": "warn",
+        "no-underscore-dangle": "warn",
+        "no-multi-assign": "warn",
+        "no-plusplus": "warn",
+        "no-bitwise": "warn",
+
+        // NOTE: These rules are configured to work with Prettier without conflict
+        // These comments are here so that we can keep a track of what we need to explicitly
+        // turn off when we introduce prettier to the styleguide
+        // "implicit-arrow-linebreak: "off",
+        // "operator-linebreak: ["error", "after", {"overrides: { "?: "before", :: "before" }}],
+        // "no-confusing-arrow: ["error", {
+        //   "allowParens: false
+        // }],
+        // "max-len: "off",
+        // "indent: "off",
+        // "arrow-parens: ["error", "always"],
+        // "no-mixed-operators: ["error", {
+        //   "groups: [
+        //     ["%", "**"],
+        //     ["%", "+"],
+        //     ["%", "-"],
+        //     ["%", "*"],
+        //     ["%", "/"],
+        //     ["/", "*"],
+        //     ["&", "|", "<<", ">>", ">>>"],
+        //     ["==", "!=", "===", "!=="],
+        //     ["&&", "||"]
+        //   ],
+        //   "allowSamePrecedence: false
+        // }],
+        // "react/jsx-indent: "off"
+        // end Prettier config overrides
+
+        // TODO: remove once eslint is upgraded
+        "camelcase": "warn",
+        "prefer-destructuring": "warn",
+        "react/no-unused-state": "warn",
+        "react/default-props-match-prop-types": "warn",
+        "import/no-unresolved": [
+            2,
+            {
+                "ignore": ["mocha-wrap"]
+            }
+        ]
+    },
+    "env": {
+        "browser": true,
+        "node": true
+    },
+    "settings": {
+        "import/resolver": {
+            "node": {
+                "extensions": [".js", ".jsx", ".ts", ".tsx"]
+            }
+        },
+        "import/extensions": [".js", ".jsx", ".ts", ".tsx"],
+        "import/parsers": {
+            "typescript-eslint-parser": [".ts", ".tsx"]
+        },
+        "propWrapperFunctions": ["forbidExtraProps", "exact", "Object.freeze"]
+    }
+}

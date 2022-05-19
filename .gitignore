@@ -1,0 +1,12 @@
+# Node
+node_modules
+npm-debug.log
+
+# Built files
+public/*
+
+# tsconfig output
+out/
+
+# Project files
+.env
