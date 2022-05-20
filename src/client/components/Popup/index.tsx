@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Modal, Typography, Space, Row, Col } from 'antd';
-import { Formik, Form, useFormikContext } from 'formik';
+import { Formik, Form } from 'formik';
 import withStyles, { WithStylesProps } from 'react-jss';
 
 import Calendar from './Field/Calendar';
@@ -8,34 +8,35 @@ import Country from './Field/Country';
 
 import { UserApiType } from '../../types/user';
 import { schema } from '../../validation/popup';
+import { context } from '../../context';
 
 type Props = {
   userData: UserApiType | null;
   setUserData: React.Dispatch<React.SetStateAction<UserApiType | null>>;
 };
 
-const Popup: React.FC<WithStylesProps<any> & Props> = ({ classes ,userData, setUserData }) => {
-  const { setValues, values } = useFormikContext<UserApiType[]>();
+const Popup: React.FC<WithStylesProps<any> & Props> = ({ classes, userData, setUserData }) => {
+  const { updateUser, users } = useContext(context);
 
   const { Text } = Typography;
 
   const handlePopupCancel = () => setUserData(null);
 
   if (!userData) {
-    throw Error('There are no data for this form.')
-  };
+    throw Error('There are no data for this form.');
+  }
 
   return (
     <Formik<UserApiType>
       initialValues={userData}
       validationSchema={schema}
       onSubmit={(userValues) => {
-        setValues(
-          values.map((value) => {
-            if (value.id === userValues.id) {
+        updateUser(
+          users.map((user) => {
+            if (user.id === userValues.id) {
               return userValues;
             }
-            return value;
+            return user;
           }),
         );
         setUserData(null);
@@ -75,7 +76,7 @@ const Popup: React.FC<WithStylesProps<any> & Props> = ({ classes ,userData, setU
                   <Text>Email:</Text>
                 </Col>
                 <Col span={16}>
-                  <Text type='secondary'>{values.email}</Text>
+                  <Text type="secondary">{values.email}</Text>
                 </Col>
               </Row>
             </Space>
@@ -94,5 +95,5 @@ export default withStyles(() => ({
   },
   row: {
     minHeight: 32,
-  }
+  },
 }))(Popup);

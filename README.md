@@ -10,5 +10,4 @@
 
 - run `npm run lint` (ESLint)
 - run `npm run type` (TypeCheck)
-- run `npm run jest` (Jest)
 - run `npm run test` (Run All Tests)

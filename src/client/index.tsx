@@ -1,16 +1,23 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
 import { ThemeProvider } from 'react-jss';
 
 import 'antd/dist/antd.css';
 
+import configureStore from './store/configureStore';
+
 import theme from './theme';
 
-import App from './App';
+import AppContainer from './containers/AppContainer';
 
-ReactDOM.hydrate(
+const store = configureStore();
+
+ReactDOM.render(
   <ThemeProvider theme={theme}>
-    <App />
+    <Provider store={store}>
+      <AppContainer />
+    </Provider>
   </ThemeProvider>,
   document.getElementById('app'),
 );

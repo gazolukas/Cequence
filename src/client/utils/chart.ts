@@ -27,7 +27,7 @@ export const filter = (
       ) {
         result.forEach((val) => {
           if (val.country === person.country) {
-            val.y++;
+            val.y += 1;
           }
         });
       } else {
