@@ -2,6 +2,7 @@
 
 ### Setup
 
+- create `.env` file
 - run `npm install`
 - run `npm run dev` (Dev mode)
 - run `npm run prod` (Prod mode)
