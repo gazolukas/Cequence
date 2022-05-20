@@ -3,7 +3,7 @@ node_modules
 npm-debug.log
 
 # Built files
-public/*
+public/bundle.js
 
 # tsconfig output
 out/

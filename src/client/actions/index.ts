@@ -15,7 +15,7 @@ function requestUsers() {
   };
 }
 
-function receiveUsers(json) {
+function receiveUsers(json: JSON) {
   return {
     type: RECEIVE_USERS,
     posts: json,

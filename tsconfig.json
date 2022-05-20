@@ -21,14 +21,10 @@
 		"esModuleInterop": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    //"allowUnreachableCode": false,
-    //"allowUnusedLabels": false,
 
 		"forceConsistentCasingInFileNames": true,
 		"resolveJsonModule": true,
 		
-    //"declaration": true,
-    //"declarationMap": true,
     "noImplicitReturns": true,
     "pretty": true,
   },
