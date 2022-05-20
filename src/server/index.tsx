@@ -1,7 +1,7 @@
 import React from 'react';
 import { renderToString } from 'react-dom/server';
 import { Provider } from 'react-redux';
-import { createStore, applyMiddleware } from 'redux';
+import { legacy_createStore as createStore, applyMiddleware } from 'redux';
 import CleanCSS from 'clean-css';
 import { ThemeProvider, SheetsRegistry } from 'react-jss';
 import express from 'express';

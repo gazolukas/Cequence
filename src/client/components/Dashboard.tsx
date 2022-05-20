@@ -37,10 +37,10 @@ const Dashboard: React.FC<Props> = ({ data }) => {
       }}
     >
       <Row>
-        <Col span={18}>
+        <Col span={12}>
           <Chart data={filter(users, dateFrom, dateTo)} />
         </Col>
-        <Col span={6}>
+        <Col span={12}>
           <DatePicker onChange={handleDatePickerChange} />
         </Col>
       </Row>

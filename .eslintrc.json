@@ -285,8 +285,6 @@
             }
         ],
 
-        // TODO: all rules below this line are temporarily disabled. We plan to
-        // enable them, with inline comments to override where needed.
         "react/forbid-prop-types": "warn",
         "react/prop-types": "off",
         "class-methods-use-this": "warn",
@@ -296,35 +294,6 @@
         "no-plusplus": "warn",
         "no-bitwise": "warn",
 
-        // NOTE: These rules are configured to work with Prettier without conflict
-        // These comments are here so that we can keep a track of what we need to explicitly
-        // turn off when we introduce prettier to the styleguide
-        // "implicit-arrow-linebreak: "off",
-        // "operator-linebreak: ["error", "after", {"overrides: { "?: "before", :: "before" }}],
-        // "no-confusing-arrow: ["error", {
-        //   "allowParens: false
-        // }],
-        // "max-len: "off",
-        // "indent: "off",
-        // "arrow-parens: ["error", "always"],
-        // "no-mixed-operators: ["error", {
-        //   "groups: [
-        //     ["%", "**"],
-        //     ["%", "+"],
-        //     ["%", "-"],
-        //     ["%", "*"],
-        //     ["%", "/"],
-        //     ["/", "*"],
-        //     ["&", "|", "<<", ">>", ">>>"],
-        //     ["==", "!=", "===", "!=="],
-        //     ["&&", "||"]
-        //   ],
-        //   "allowSamePrecedence: false
-        // }],
-        // "react/jsx-indent: "off"
-        // end Prettier config overrides
-
-        // TODO: remove once eslint is upgraded
         "camelcase": "warn",
         "prefer-destructuring": "warn",
         "react/no-unused-state": "warn",

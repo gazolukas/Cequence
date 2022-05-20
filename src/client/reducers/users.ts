@@ -1,3 +1,4 @@
+import { AnyAction } from 'redux';
 import { INVALIDATE_USERS, REQUEST_USERS, RECEIVE_USERS } from '../actions';
 
 export const INITIAL_STATE = {
@@ -10,7 +11,7 @@ function posts(
     isFetching: false,
     didInvalidate: false,
   },
-  action,
+  action: AnyAction,
 ) {
   switch (action.type) {
     case INVALIDATE_USERS:
@@ -36,7 +37,7 @@ function posts(
   }
 }
 
-function users(state = INITIAL_STATE, action) {
+function users(state = INITIAL_STATE, action: AnyAction) {
   switch (action.type) {
     case INVALIDATE_USERS:
     case RECEIVE_USERS:

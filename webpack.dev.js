@@ -29,7 +29,7 @@ module.exports = merge(config, {
   plugins: [
     new HtmlWebpackPlugin({
       inject: true,
-      template: 'public/index.html',
+      template: 'public/index-dev.html',
     }),
     new webpack.DefinePlugin(envKeys),
   ],
