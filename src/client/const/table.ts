@@ -1,4 +1,4 @@
-export const table_columns = [
+export const tableColumns = [
   {
     title: 'First Name',
     dataIndex: 'first_name',

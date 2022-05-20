@@ -1,67 +1,33 @@
-import React, { useState } from 'react';
-import { Layout, Row, Col, Table } from 'antd';
-import { Moment } from 'moment';
-import { Formik, Form, FieldArray } from 'formik';
+import React, { useEffect } from 'react';
+import { Layout } from 'antd';
 
-import Chart from './components/Chart';
-import DatePicker from './components/DatePicker';
-import Popup from './components/Popup';
+import Loader from './components/Loader';
+import Dashboard from './components/Dashboard';
 
-import data from './mocks/data';
+import { fetchUsers } from './actions';
 
 import { UserApiType } from './types/user';
-import { table_columns } from './const/table';
-import { filter } from './utils/chart';
 
-const App: React.FC = () => {
-  const [dateFrom, setDateFrom] = useState<Moment | null>(null);
-  const [dateTo, setDateTo] = useState<Moment | null>(null);
-  const [userData, setUserData] = useState<UserApiType | null>(null);
+type Props = {
+  dispatch: (...args: any[]) => void;
+  data: UserApiType[];
+  isFetching: boolean;
+};
 
-  const handleDatePickerChange = (dateRange: Moment[]) => {
-    setDateFrom((dateRange && dateRange[0]) || null);
-    setDateTo((dateRange && dateRange[1]) || null);
-  };
+const App: React.FC<Props> = ({ dispatch, data, isFetching }) => {
+  useEffect(() => {
+    if (data.length === 0 && !isFetching) {
+      dispatch(fetchUsers());
+    }
+  });
 
-  const handlePopupClick = (values: UserApiType) => setUserData(values);
+  if (data.length === 0) {
+    return <Loader />;
+  }
 
   return (
     <Layout>
-      <Formik<UserApiType[]>
-        initialValues={data}
-        onSubmit={() => {}}
-      >
-        {({ values }) => (
-          <Form>
-            <FieldArray name="users">
-              {() => (
-                <>
-                  <Row>
-                    <Col span={18}>
-                      <Chart data={filter(values, dateFrom, dateTo)} />
-                    </Col>
-                    <Col span={6}>
-                      <DatePicker onChange={handleDatePickerChange} />
-                    </Col>
-                  </Row>
-                  <Table
-                    dataSource={values}
-                    onRow={(record) => {
-                      return {
-                        onClick: () => handlePopupClick(record),
-                      };
-                    }}
-                    columns={table_columns}
-                  />
-                  {userData && (
-                    <Popup userData={userData} setUserData={setUserData} />
-                  )}
-                </>
-              )}
-            </FieldArray>
-          </Form>
-        )}
-      </Formik>
+      <Dashboard data={data} />
     </Layout>
   );
 };

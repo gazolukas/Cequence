@@ -11,7 +11,7 @@ const Country: React.FC<WithStylesProps<any>> = ({ classes }) => {
       {({ field, form, meta }: FieldProps) => {
         const onChange = (value: string) => {
           const country = value || '';
-          form.setFieldValue(field.name, country)
+          form.setFieldValue(field.name, country);
         };
 
         return (
@@ -31,7 +31,7 @@ const Country: React.FC<WithStylesProps<any>> = ({ classes }) => {
             </Select>
             {meta.touched && meta.error && <div className={classes.error}>{meta.error}</div>}
           </div>
-        )
+        );
       }}
     </Field>
   );
@@ -43,5 +43,5 @@ export default withStyles(({ color }: any) => ({
   },
   width: {
     width: 150,
-  }
+  },
 }))(Country);

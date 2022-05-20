@@ -4,7 +4,6 @@
         "prettier",
         "prettier/react",
         "prettier/@typescript-eslint",
-        "plugin:jest/recommended",
 
         "eslint:recommended",
         "plugin:@typescript-eslint/eslint-recommended",
@@ -27,7 +26,6 @@
         "import",
         "prettier",
         "@typescript-eslint",
-        "jest",
 
         "promise"
     ],
@@ -103,7 +101,7 @@
         "promise/no-promise-in-callback": "warn",
         "promise/no-callback-in-promise": "warn",
         "promise/avoid-new": "off",
-        "promise/prefer-await-to-then": "error",
+        "promise/prefer-await-to-then": "warn",
         "promise/prefer-await-to-callbacks": "off",
 
         // ESlint
@@ -114,6 +112,7 @@
         "function-paren-newline": "error",
         "no-use-before-define": 0,
         "no-shadow": 0,
+        "no-param-reassign": "off",
         "no-warning-comments": "error",
         "eol-last": "error",
         "curly": "error",

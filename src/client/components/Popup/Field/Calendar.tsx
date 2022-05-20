@@ -13,9 +13,9 @@ const Calendar: React.FC<WithStylesProps<any>> = ({ classes }) => {
         const onChange = (value: Moment | null): void => {
           const date = value ? moment(value).format(DATE_FORMAT) : '';
           form.setFieldValue(field.name, date);
-        }
+        };
         const value = field.value ? moment(field.value) : null;
-        const status = meta.touched && meta.error ? "error" : undefined;
+        const status = meta.touched && meta.error ? 'error' : undefined;
 
         return (
           <div>
@@ -28,7 +28,7 @@ const Calendar: React.FC<WithStylesProps<any>> = ({ classes }) => {
             />
             {meta.touched && meta.error && <div className={classes.error}>{meta.error}</div>}
           </div>
-        )
+        );
       }}
     </Field>
   );
@@ -40,5 +40,5 @@ export default withStyles(({ color }: any) => ({
   },
   width: {
     width: 150,
-  }
+  },
 }))(Calendar);
